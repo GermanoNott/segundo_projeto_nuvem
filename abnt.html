@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABNT</title>
+</head>
+<script>
+  function formatar() {
+    let nome = document.forms['nomes']['nome'].value
+
+    if (nome == '') {
+      alert('Digitar nome!')
+      return false
+    }
+
+    nome = nome.trim()
+
+    let tamanho = nome.length
+    let sobrenome = ''
+
+    for (var i = tamanho - 1; i >= 0; i--) {
+      if (nome[i] == ' ') {
+        sobrenome = nome.slice(i + 1, tamanho)
+        nome = nome.slice(0, i)
+        nome = nome.trim()
+        tamanho = nome.length
+        break
+      }
+    }
+
+    let fimNome = nome.indexOf(' ')
+    let abnt = sobrenome + ', ' + nome.slice(0, fimNome) + ' '
+
+    for (var i = 1; i < tamanho; i++) {
+      if (nome[i] == ' ') {
+        if (nome[i + 1] != ' ') {
+          abnt = abnt + nome[i + 1] + ' '
+          console.log(abnt)
+        }
+      }
+    }
+    document.forms['nomes']['abnt'].value = abnt
+  }
+</script>
+
+<body>
+  <h1>Inverter nome no formato ABNT</h1>
+
+  <form name="nomes">
+    <p>Nome: <input type="text" name="nome" maxlength="50" size="50" /></p>
+    <p>
+      Formato ABNT <input type="text" name="abnt" maxlength="30" size="30" />
+    </p>
+    <p>
+      <input type="button" value="Formato ABNT" name="BotaoFormatar" onclick="formatar()" />
+    </p>
+  </form>
+</body>
+
+</html>

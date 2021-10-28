@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2º Trabalho</title>
-  </head>
-  <body>
-    <h1>TESTE DO NODE</h1>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2º Trabalho</title>
+</head>
+
+<body>
+  <script>
+    function somar() {
+      let n1 = document.forms['calc']['n1'].value
+      let n2 = document.forms['calc']['n2'].value
+
+      let soma = Number(n1) + Number(n2)
+      document.forms['calc']['resultado'].value = soma
+    }
+  </script>
+
+  <h1>Somar dois números</h1>
+
+  <form name="calc">
+    <p>
+      Numero 1: <input type="number" name="n1" maxlength="50" size="50" />
+    </p>
+    <p>
+      Numero 2: <input type="number" name="n2" maxlength="50" size="50" />
+    </p>
+    <p>
+      Soma: <input type="number" name="resultado" maxlength="30" size="30" />
+    </p>
+    <p>
+      <input type="button" value="Soma" name="Botaosoma" onclick="somar()" />
+    </p>
+  </form>
+  <!-- <script src="/script.js"></script> -->
+</body>
+
 </html>
